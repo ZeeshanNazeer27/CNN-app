@@ -1,0 +1,6 @@
+pandas
+tensorflow
+numpy
+cv2
+PIL
+matplotlib
