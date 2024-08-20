@@ -1,12 +1,16 @@
 import streamlit as st
 import tensorflow as tf
-from tensorflow import keras
 from tensorflow.keras.models import load_model
 import numpy as np
 from PIL import Image
+import os
 
-# Load the model
-model = load_model('E:/Internship/CNN/cnn.h5')
+# Load model
+model_path = 'cnn.h5'
+if os.path.exists(model_path):
+    model = load_model(model_path)
+else:
+    st.error("Model file not found. Please upload the model file.")
 
 st.title("Cheetah or Hyena Classifier")
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
